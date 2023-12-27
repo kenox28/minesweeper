@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minesweeper</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif, bold;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      .evenCell {
+        background-color: #ee5332;
+        width: 50px;
+        height: 50px;
+        vertical-align: center;
+        margin: 0px;
+        padding: 0px;
+      }
+      .openedEvenCell {
+        background-color: #f7ee86;
+        width: 50px;
+        height: 50px;
+        vertical-align: center;
+        margin: 0px;
+        padding: 0px;
+      }
+      .oddCell {
+        background-color: #f19986;
+        width: 50px;
+        height: 50px;
+        vertical-align: center;
+        margin: 0px;
+        padding: 0px;
+      }
+      .openedOddCell {
+        background-color: #fcf7ba;
+        width: 50px;
+        height: 50px;
+        vertical-align: center;
+        margin: 0px;
+        padding: 0px;
+      }
+      .gameCell {
+        cursor: pointer;
+      }
+      .cell {
+        margin: auto;
+        border-collapse: collapse;
+      }
+      .cell td {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .cell td:hover {
+        transform: scale(1.5);
+      }
+      p {
+        color: #ee5332;
+        margin: 10px;
+        padding: 10px;
+        font-size: 250%;
+      }
+      .title {
+        color: black;
+        margin: 10px;
+        padding: 10px;
+        font-size: 300%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin: 0;
+
+        background-image: linear-gradient(to bottom, red, rgb(3, 236, 3));
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 0px;
+        font-size: 36px;
+        color: #fff;
+        background-color: #333;
+        width: 100%;
+        padding: 0px 0;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      .footer {
+        margin-top: 60px;
+        font-size: 10px;
+        color: #fff;
+        background-color: #333;
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .members {
+        font-size: 15px;
+        margin-right: 10px;
+      }
+
+      .groupsimg {
+        height: 25px;
+        margin-left: 10px;
+      }
+      #flagCounter {
+        font-size: 30px;
+        text-align: right;
+        color: #333;
+      }
+      .imgeasy {
+        float: left;
+        justify-content: left;
+        height: 70px;
+      }
+      .imgeasy2 {
+        float: right;
+        justify-content: right;
+        height: 70px;
+      }
+    </style>
+    <script src="minesweeper.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <img class="imgeasy" src="easybomb2.png" alt="" />Minesweeper Game
+      <img class="imgeasy2" src="easybomb2.png" alt="" />
+    </div>
+    <p id="flagCounter">10 Flags 🚩</p>
+    <table class="cell">
+      <tr>
+        <td id="cell0" class="evenCell gameCell"></td>
+        <td id="cell1" class="oddCell gameCell"></td>
+        <td id="cell2" class="evenCell gameCell"></td>
+        <td id="cell3" class="oddCell gameCell"></td>
+        <td id="cell4" class="evenCell gameCell"></td>
+        <td id="cell5" class="oddCell gameCell"></td>
+        <td id="cell6" class="evenCell gameCell"></td>
+        <td id="cell7" class="oddCell gameCell"></td>
+        <td id="cell8" class="evenCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell9" class="oddCell gameCell"></td>
+        <td id="cell10" class="evenCell gameCell"></td>
+        <td id="cell11" class="oddCell gameCell"></td>
+        <td id="cell12" class="evenCell gameCell"></td>
+        <td id="cell13" class="oddCell gameCell"></td>
+        <td id="cell14" class="evenCell gameCell"></td>
+        <td id="cell15" class="oddCell gameCell"></td>
+        <td id="cell16" class="evenCell gameCell"></td>
+        <td id="cell17" class="oddCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell18" class="evenCell gameCell"></td>
+        <td id="cell19" class="oddCell gameCell"></td>
+        <td id="cell20" class="evenCell gameCell"></td>
+        <td id="cell21" class="oddCell gameCell"></td>
+        <td id="cell22" class="evenCell gameCell"></td>
+        <td id="cell23" class="oddCell gameCell"></td>
+        <td id="cell24" class="evenCell gameCell"></td>
+        <td id="cell25" class="oddCell gameCell"></td>
+        <td id="cell26" class="evenCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell27" class="oddCell gameCell"></td>
+        <td id="cell28" class="evenCell gameCell"></td>
+        <td id="cell29" class="oddCell gameCell"></td>
+        <td id="cell30" class="evenCell gameCell"></td>
+        <td id="cell31" class="oddCell gameCell"></td>
+        <td id="cell32" class="evenCell gameCell"></td>
+        <td id="cell33" class="oddCell gameCell"></td>
+        <td id="cell34" class="evenCell gameCell"></td>
+        <td id="cell35" class="oddCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell36" class="evenCell gameCell"></td>
+        <td id="cell37" class="oddCell gameCell"></td>
+        <td id="cell38" class="evenCell gameCell"></td>
+        <td id="cell39" class="oddCell gameCell"></td>
+        <td id="cell40" class="evenCell gameCell"></td>
+        <td id="cell41" class="oddCell gameCell"></td>
+        <td id="cell42" class="evenCell gameCell"></td>
+        <td id="cell43" class="oddCell gameCell"></td>
+        <td id="cell44" class="evenCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell45" class="oddCell gameCell"></td>
+        <td id="cell46" class="evenCell gameCell"></td>
+        <td id="cell47" class="oddCell gameCell"></td>
+        <td id="cell48" class="evenCell gameCell"></td>
+        <td id="cell49" class="oddCell gameCell"></td>
+        <td id="cell50" class="evenCell gameCell"></td>
+        <td id="cell51" class="oddCell gameCell"></td>
+        <td id="cell52" class="evenCell gameCell"></td>
+        <td id="cell53" class="oddCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell54" class="evenCell gameCell"></td>
+        <td id="cell55" class="oddCell gameCell"></td>
+        <td id="cell56" class="evenCell gameCell"></td>
+        <td id="cell57" class="oddCell gameCell"></td>
+        <td id="cell58" class="evenCell gameCell"></td>
+        <td id="cell59" class="oddCell gameCell"></td>
+        <td id="cell60" class="evenCell gameCell"></td>
+        <td id="cell61" class="oddCell gameCell"></td>
+        <td id="cell62" class="evenCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell63" class="oddCell gameCell"></td>
+        <td id="cell64" class="evenCell gameCell"></td>
+        <td id="cell65" class="oddCell gameCell"></td>
+        <td id="cell66" class="evenCell gameCell"></td>
+        <td id="cell67" class="oddCell gameCell"></td>
+        <td id="cell68" class="evenCell gameCell"></td>
+        <td id="cell69" class="oddCell gameCell"></td>
+        <td id="cell70" class="evenCell gameCell"></td>
+        <td id="cell71" class="oddCell gameCell"></td>
+      </tr>
+      <tr>
+        <td id="cell72" class="evenCell gameCell"></td>
+        <td id="cell73" class="oddCell gameCell"></td>
+        <td id="cell74" class="evenCell gameCell"></td>
+        <td id="cell75" class="oddCell gameCell"></td>
+        <td id="cell76" class="evenCell gameCell"></td>
+        <td id="cell77" class="oddCell gameCell"></td>
+        <td id="cell78" class="evenCell gameCell"></td>
+        <td id="cell79" class="oddCell gameCell"></td>
+        <td id="cell80" class="evenCell gameCell"></td>
+      </tr>
+    </table>
+    <div class="footer">
+      <span>Created by </span>
+      <span class="members"
+        ><a href="https://www.facebook.com/iquen.marba.7/"
+          >Clyde Morallos</a
+        ></span
+      >
+      <span class="members"><a href="">James Humphry Manilag</a></span>
+      <span class="members"><a href="">Iquen l Marba</a></span>
+      <span class="members"><a href="">Lorence Capuyan</a></span>
+      <span class="members"><a href="">Wendel Tupaz</a></span>
+      <span class="members"><a href="">Zion Ramos Madula</a></span>
+      <img id="groupsimg" src="Group.png" height="25px" class="groupsimg" />
+    </div>
+    <script>
+      window.onload = function () {
+        main(); // Call your function here
+      };
+    </script>
+  </body>
+</html>

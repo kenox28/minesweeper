@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOMB</title>
+    <style>
+      * {
+        font-family: sans-serif, bold;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        background-image: linear-gradient(to bottom, red, rgb(3, 236, 3));
+      }
+
+      .centerdiv {
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .EASY,
+      .MEDIUM,
+      .HARD {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 70px;
+        padding: 20px;
+        width: 200px;
+        height: 200px;
+        position: relative;
+      }
+
+      button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 0;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button img {
+        max-width: 150%;
+        max-height: 150%;
+        transition: transform 0.3s ease-in-out;
+        object-fit: contain;
+      }
+      button:hover img {
+        transform: scale(1.4);
+      }
+      .button-text {
+        position: absolute;
+        top: 160%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 40px;
+        font-weight: 200px;
+        color: black;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 36px;
+        color: #fff;
+        background-color: #333;
+        width: 100%;
+        padding: 20px 0;
+        box-sizing: border-box;
+      }
+      .footer {
+        margin-top: 170px;
+        font-size: 10px;
+        color: #fff;
+        background-color: #333;
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .members {
+        font-size: 15px;
+        margin-right: 10px;
+      }
+
+      .groupsimg {
+        height: 25px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Minesweeper Game</div>
+    <div class="container">
+      <div class="EASY">
+        <button onclick="openMineSweeper('easy')">
+          <img id="EASYimg" src="easybomb2.png" alt="" />
+          <span class="button-text">Easy</span>
+        </button>
+      </div>
+
+      <div class="MEDIUM">
+        <button onclick="openMineSweeper('medium')">
+          <img id="MEDIUMimg" src="bomb3-remove.png" alt="" />
+          <span class="button-text">Medium</span>
+        </button>
+      </div>
+
+      <div class="HARD">
+        <button onclick="openMineSweeper('hard')">
+          <img id="HARDimg" src="bombHARD-removebg-preview.png" alt="" />
+          <span class="button-text">Hard</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>Created by </span>
+      <span class="members"
+        ><a href="https://www.facebook.com/iquen.marba.7/"
+          >Clyde Morallos</a
+        ></span
+      >
+      <span class="members"><a href="">James Humphry Manilag</a></span>
+      <span class="members"><a href="">Iquen l Marba</a></span>
+      <span class="members"><a href="">Lorence Capuyan</a></span>
+      <span class="members"><a href="">wendel tupaz</a></span>
+      <span class="members"><a href="">Zion Ramos Madula</a></span>
+      <img id="groupsimg" src="Group.png" height="25px" />
+    </div>
+    <script>
+      function openMineSweeper(mode) {
+        switch (mode) {
+          case "easy":
+            window.location.href = "minesweeper1.html"; // Redirect to the minesweeper.html page
+            break;
+          case "medium":
+            window.location.href = "minesweeper2.html"; // Redirect to the minesweeper.html page
+            break;
+          case "hard":
+            window.location.href = "minesweeper3.html"; // Redirect to the minesweeper.html page
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
